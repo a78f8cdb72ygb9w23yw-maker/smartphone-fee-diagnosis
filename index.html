@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1220">
+<meta name="description" content="スマホのデータ量・通話・家族・光回線などから、あなたに合うスマホ料金プランを無料診断。">
+<meta property="og:title" content="スマホ料金 最適プラン診断">
+<meta property="og:description" content="約1分で、あなたに合うスマホ料金プランを比較。">
+<meta property="og:type" content="website">
+<title>スマホ料金 最適プラン診断｜1分で比較</title>
+<style>
+:root{--ink:#101828;--muted:#667085;--bg:#f4f6fa;--card:#fff;--line:#e4e7ec;--navy:#0b1220;--blue:#315efb;--green:#087443;--amber:#b54708}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP","Yu Gothic",sans-serif;line-height:1.65}
+a{color:inherit}.wrap{width:min(760px,100%);margin:auto;padding:16px}.hero{background:linear-gradient(145deg,#0b1220,#24324b);color:#fff;border-radius:26px;padding:30px 22px;margin:8px 0 14px;box-shadow:0 12px 34px #10182820}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.09em;opacity:.7}.hero h1{font-size:clamp(29px,8vw,42px);line-height:1.14;margin:7px 0 11px}.hero p{margin:0;opacity:.9}.trust{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}.trust span{background:#ffffff16;border:1px solid #ffffff20;border-radius:99px;padding:5px 9px;font-size:11px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:21px;margin:14px 0;box-shadow:0 4px 18px #10182808}.progress{height:6px;background:#eaecf0;border-radius:99px;overflow:hidden;margin-bottom:20px}.progress i{display:block;height:100%;width:16%;background:var(--navy);transition:.25s}.step{display:none}.step.active{display:block}.q{font-size:20px;font-weight:850;margin:0 0 15px}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.opt{border:1px solid var(--line);background:#fff;border-radius:15px;padding:15px;text-align:left;font-size:15px;font-weight:800;cursor:pointer}.opt:active{transform:scale(.99)}.opt small{display:block;color:var(--muted);font-weight:500;margin-top:3px}.input{width:100%;padding:15px;border:1px solid var(--line);border-radius:13px;font-size:17px}.hint{font-size:12px;color:var(--muted);margin-top:7px}.actions{display:flex;gap:9px;margin-top:18px}.btn{border:0;border-radius:13px;padding:14px 18px;font-weight:850;font-size:15px;cursor:pointer}.primary{background:var(--navy);color:#fff;flex:1}.secondary{background:#fff;border:1px solid var(--line)}
+.result{display:none}.result.show{display:block}.heroResult{background:linear-gradient(145deg,#101828,#344054);color:#fff;border-radius:22px;padding:22px}.pill{display:inline-block;border-radius:99px;padding:5px 10px;background:#eef2ff;color:#3730a3;font-size:11px;font-weight:850}.heroResult h2{font-size:26px;line-height:1.25;margin:8px 0}.saving{font-size:29px;font-weight:900}.smallwhite{font-size:12px;opacity:.8}
+.plan{border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:12px}.plan.best{border:2px solid var(--navy)}.rank{font-size:11px;font-weight:900;color:var(--muted)}.plan h3{margin:3px 0 5px;font-size:19px}.price{font-size:25px;font-weight:900}.save{color:var(--green);font-weight:850;margin-top:3px}.reason{font-size:13px;color:#475467;margin-top:7px}.tag{display:inline-block;background:#f2f4f7;border-radius:99px;padding:3px 8px;font-size:11px;margin:6px 4px 0 0}.cta{display:block;text-align:center;text-decoration:none;background:var(--navy);color:#fff;border-radius:12px;padding:13px;margin-top:14px;font-weight:850}.cta.disabled{background:#98a2b3}.ctaNote{text-align:center;color:var(--muted);font-size:11px;margin-top:6px}
+.notice{background:#fffaeb;border:1px solid #fedf89;color:#7a2e0b;border-radius:15px;padding:13px;font-size:12px;margin-top:14px}.share{display:flex;gap:9px}.share .btn{flex:1}.faq details{border-top:1px solid var(--line);padding:13px 0}.faq details:first-child{border-top:0}.faq summary{font-weight:800;cursor:pointer}.legal,.footer{font-size:11px;color:var(--muted);line-height:1.75}.footer{padding:8px 2px 35px}.sources a{text-decoration:underline}
+@media(max-width:520px){.options{grid-template-columns:1fr}.wrap{padding:12px}.hero{padding:26px 19px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow">SMARTPHONE PLAN CHECK</div>
+<h1>スマホ料金、<br>払いすぎてない？</h1>
+<p>約1分の質問に答えるだけ。データ量・通話・家族・自宅ネットを考えて、候補を3つに絞ります。</p>
+<div class="trust"><span>無料</span><span>約1分</span><span>登録不要</span><span>スマホ対応</span></div>
+</header>
+
+<section class="card" id="quiz">
+<div class="progress"><i id="bar"></i></div>
+
+<div class="step active" data-step="1">
+<p class="q">今の携帯会社は？</p>
+<div class="options">
+<button class="opt" data-k="carrier" data-v="docomo">docomo</button><button class="opt" data-k="carrier" data-v="au">au</button>
+<button class="opt" data-k="carrier" data-v="softbank">SoftBank</button><button class="opt" data-k="carrier" data-v="rakuten">楽天モバイル</button>
+<button class="opt" data-k="carrier" data-v="other">その他</button>
+</div></div>
+
+<div class="step" data-step="2">
+<p class="q">月に何GBくらい使う？</p>
+<div class="options">
+<button class="opt" data-k="gb" data-v="3">3GB以下<small>LINE・連絡中心</small></button>
+<button class="opt" data-k="gb" data-v="10">3〜10GB<small>SNS・動画はWi-Fi中心</small></button>
+<button class="opt" data-k="gb" data-v="20">10〜20GB<small>普通にSNS・動画</small></button>
+<button class="opt" data-k="gb" data-v="30">20〜30GB<small>外でも動画を見る</small></button>
+<button class="opt" data-k="gb" data-v="110">30GB以上<small>大容量・テザリング</small></button>
+</div></div>
+
+<div class="step" data-step="3">
+<p class="q">通話はどのくらい？</p>
+<div class="options">
+<button class="opt" data-k="call" data-v="low">ほぼしない</button>
+<button class="opt" data-k="call" data-v="five">5分以内が多い</button>
+<button class="opt" data-k="call" data-v="long">長電話が多い</button>
+</div></div>
+
+<div class="step" data-step="4">
+<p class="q">家族も同じ携帯会社？</p>
+<div class="options">
+<button class="opt" data-k="family" data-v="1">自分だけ</button>
+<button class="opt" data-k="family" data-v="2">2人</button>
+<button class="opt" data-k="family" data-v="3">3人以上</button>
+</div></div>
+
+<div class="step" data-step="5">
+<p class="q">自宅のネット回線は？</p>
+<div class="options">
+<button class="opt" data-k="fiber" data-v="none">なし</button><button class="opt" data-k="fiber" data-v="softbank">SoftBank光</button>
+<button class="opt" data-k="fiber" data-v="docomo">ドコモ光</button><button class="opt" data-k="fiber" data-v="au">auひかり</button>
+<button class="opt" data-k="fiber" data-v="other">その他</button>
+</div></div>
+
+<div class="step" data-step="6">
+<p class="q">今のスマホ料金は月いくら？</p>
+<input class="input" id="current" type="number" min="0" step="100" inputmode="numeric" placeholder="例：8,000">
+<div class="hint">端末の分割代は除き、通信・通話・オプション代の目安でOK。</div>
+<div class="actions"><button class="btn secondary" id="back">戻る</button><button class="btn primary" id="finish">診断結果を見る</button></div>
+</div>
+</section>
+
+<section id="result" class="result"></section>
+
+<section class="card" id="shareCard" style="display:none">
+<h3 style="margin-top:0">診断結果をシェア</h3>
+<div class="share"><button class="btn secondary" id="copy">結果をコピー</button><button class="btn primary" id="xshare">Xで共有</button></div>
+</section>
+
+<section class="card faq">
+<h2 style="margin-top:0">よくある質問</h2>
+<details><summary>この診断は無料？</summary><p>無料・登録不要で使える想定です。</p></details>
+<details><summary>診断結果どおりに乗り換えれば安くなる？</summary><p>必ず安くなるとは限りません。家族割、光回線セット割、通話オプション、キャンペーン、端末代などで実際の料金は変わります。申込み前に公式サイトの最新条件をご確認ください。</p></details>
+<details><summary>今のスマホはそのまま使える？</summary><p>端末の対応周波数・SIMロック・eSIM対応などの確認が必要です。乗り換え前に各社の動作確認端末ページをご確認ください。</p></details>
+</section>
+
+<section class="card sources">
+<b>料金情報の確認先</b><br>
+このサイトは料金比較の目安を提供する第三者サイトです。料金・キャンペーンは変わるため、最終確認は各社公式サイトで行ってください。
+<p>
+<a href="https://www.linemo.jp/plan/" target="_blank" rel="noopener">LINEMO公式</a> ／
+<a href="https://ahamo.com/plan/index.html" target="_blank" rel="noopener">ahamo公式</a> ／
+<a href="https://www.uqmobile.jp/" target="_blank" rel="noopener">UQ mobile公式</a> ／
+<a href="https://network.mobile.rakuten.co.jp/fee/saikyo-plan/" target="_blank" rel="noopener">楽天モバイル公式</a>
+</p>
+</section>
+
+<footer class="footer">
+<b>広告・アフィリエイトについて</b><br>
+当サイトには広告・アフィリエイトリンクを掲載する場合があります。リンク経由で申込み等が成立した場合、当サイト運営者が報酬を受け取ることがあります。料金やサービスの条件に影響するものではありません。<br><br>
+※診断結果は簡易的な比較であり、個別の契約条件を保証するものではありません。<br>
+※この公開版では広告リンクを仮設定していません。ASP提携後、各案件の正式な広告URLに差し替えてください。
+</footer>
+</div>
+
+<script>
+const state={carrier:null,gb:null,call:null,family:null,fiber:null,current:0};
+let step=1,total=6;
+const steps=[...document.querySelectorAll('.step')],bar=document.getElementById('bar');
+function render(){steps.forEach(x=>x.classList.toggle('active',+x.dataset.step===step));bar.style.width=(step/total*100)+'%'}
+document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{state[b.dataset.k]=b.dataset.v;if(step<total){step++;render()}});
+document.getElementById('back').onclick=()=>{if(step>1){step--;render()}};
+document.getElementById('finish').onclick=()=>{state.current=Number(document.getElementById('current').value||0);result()};
+function price(id,g){
+ if(id==='linemo')return g<=3?990:2090;
+ if(id==='linemov')return 2970;
+ if(id==='ahamo')return 2970;
+ if(id==='oomori')return 4950;
+ if(id==='rakuten')return g<=3?1078:g<=20?2178:3278;
+ if(id==='uq')return 3465;
+ return 0;
+}
+const plans=[
+{id:'linemo',name:'LINEMO ベストプラン',cap:10,carrier:'softbank',tags:['3〜10GB','オンライン'],reason:'小〜中容量をシンプルに安くしたい人の有力候補。'},
+{id:'linemov',name:'LINEMO ベストプランV',cap:30,carrier:'softbank',tags:['30GB','5分通話'],reason:'20〜30GB前後＋短時間の通話を使う人に向く候補。'},
+{id:'ahamo',name:'ahamo',cap:30,carrier:'docomo',tags:['30GB','5分通話'],reason:'30GBをシンプルに使いたい人の候補。'},
+{id:'oomori',name:'ahamo 大盛り',cap:110,carrier:'docomo',tags:['110GB','大容量'],reason:'30GBを超えて使う人向けの候補。'},
+{id:'rakuten',name:'楽天モバイル Rakuten最強プラン',cap:110,carrier:'rakuten',tags:['従量制','大容量'],reason:'利用量に応じて料金が変わり、大容量でも候補にしやすい。'},
+{id:'uq',name:'UQ mobile',cap:30,carrier:'au',tags:['店舗サポート','au系'],reason:'店舗サポートやau系サービスとの組み合わせを重視する人の候補。'}
+];
+function score(p){
+ let s=0,g=Number(state.gb);
+ if(g<=p.cap)s+=35;else s-=35;
+ if(state.call==='five'&&(p.id==='linemov'||p.id==='ahamo'))s+=14;
+ if(state.call==='low'&&p.id==='linemo')s+=12;
+ if(state.call==='long'&&(p.id==='rakuten'||p.id==='oomori'))s+=8;
+ if(state.carrier===p.carrier)s+=8;
+ if(state.family!=='1'&&(p.id==='uq'||p.carrier==='softbank'))s+=4;
+ if(state.fiber==='softbank'&&p.carrier==='softbank')s+=4;
+ if(state.fiber==='docomo'&&p.carrier==='docomo')s+=4;
+ if(state.fiber==='au'&&p.carrier==='au')s+=4;
+ return s;
+}
+function result(){
+ const ranked=plans.map(p=>({...p,score:score(p)})).sort((a,b)=>b.score-a.score).slice(0,3),best=ranked[0],bp=price(best.id,Number(state.gb)),save=state.current?Math.max(0,state.current-bp):0;
+ const el=document.getElementById('result');
+ el.innerHTML=`<div class="heroResult"><span class="pill">診断完了</span><h2>第一候補は<br>${best.name}</h2>${state.current?`<div class="saving">約${save.toLocaleString()}円/月</div><div>今より安くなる目安。年間なら約${(save*12).toLocaleString()}円。</div>`:'<div>現在料金を入力すると節約額も表示します。</div>'}<div class="smallwhite">※料金・割引・キャンペーン等により実額は変わります。</div></div>
+ <div class="card"><h2 style="margin-top:0">おすすめTOP3</h2>${ranked.map((p,i)=>{let pr=price(p.id,Number(state.gb)),sv=state.current?Math.max(0,state.current-pr):0;return `<article class="plan ${i===0?'best':''}"><div class="rank">${i===0?'BEST MATCH':'第'+(i+1)+'位'}</div><h3>${p.name}</h3><div class="price">${pr.toLocaleString()}円〜/月</div>${state.current?`<div class="save">現在との差：約${sv.toLocaleString()}円/月</div>`:''}<div class="reason">${p.reason}</div><div>${p.tags.map(t=>`<span class="tag">#${t}</span>`).join('')}</div><a class="cta" href="#" onclick="affiliate(event)">詳細を見る</a><div class="ctaNote">※ASP提携後に正式リンクを設定</div></article>`}).join('')}<div class="notice"><b>注意：</b>これは簡易診断です。家族割・光セット割・通話料・端末代・キャンペーン等を完全には反映していません。申込み前に公式条件をご確認ください。</div></div>`;
+ el.classList.add('show');document.getElementById('shareCard').style.display='block';el.scrollIntoView({behavior:'smooth'});
+}
+function affiliate(e){e.preventDefault();alert('ASP提携後、ここに正式な広告リンクを設定します。')}
+document.getElementById('copy').onclick=async()=>{let t='スマホ料金診断：第一候補は '+document.querySelector('.heroResult h2').innerText.replace('第一候補は','').trim();try{await navigator.clipboard.writeText(t);alert('コピーしました！')}catch{alert(t)}};
+document.getElementById('xshare').onclick=()=>{let t=encodeURIComponent('スマホ料金を1分で診断してみた。');window.open('https://twitter.com/intent/tweet?text='+t,'_blank')};
+render();
+</script>
+</body></html>
